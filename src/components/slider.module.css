@@ -1,0 +1,8 @@
+.slide{
+	background-color: blue;
+	height: 100px;
+	width: 100%;
+	background-position: center;
+	background-size: cover;
+	border-radius: 8px;
+}
