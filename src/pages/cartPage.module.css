@@ -1,0 +1,39 @@
+.cartPage {
+  padding: 20px;
+}
+
+.cartList {
+  list-style: none;
+  padding: 0;
+}
+
+.cartItem {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+}
+
+.image {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+.details {
+  flex-grow: 1;
+}
+
+.removeButton {
+  background: red;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.removeButton:hover {
+  background: darkred;
+}
