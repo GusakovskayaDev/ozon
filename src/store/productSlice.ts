@@ -1,5 +1,7 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 
+const URL = 'https://fakestoreapi.com/products';
+
 export type Product = {
   id: number;
   title: string;
@@ -26,9 +28,9 @@ const initialState: ProductsState = {
 };
 
 export const fetchProducts = createAsyncThunk<Product[]>(
-  'products/fetchProducts',
+  '@products/fetchProducts',
   async () => {
-    const response = await fetch('https://fakestoreapi.com/products');
+    const response = await fetch(URL);
     if (!response.ok) {
       throw new Error('Ошибка сети');
     }
@@ -58,7 +60,7 @@ const productSlice = createSlice({
       .addCase(fetchProducts.rejected, (state, action) => {
         state.loading = false;
         state.error =
-          action.error.message || 'Ошибка при получении данных о продуктах';
+          action.error.message || 'Ошибка при получении данных';
       });
   },
 });

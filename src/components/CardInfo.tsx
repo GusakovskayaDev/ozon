@@ -1,13 +1,15 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { addToCart } from '../store/cartSlice';
 import { RootState } from '../store/store';
 import styles from './cardInfo.module.css';
 import Button from '../UI/Button';
 import { FaHeart } from 'react-icons/fa';
 
 const ProductPage = () => {
-  const { id } = useParams();
+  const { id } = useParams<{ id: string }>();
+	const dispatch = useDispatch();
 
   const products = useSelector((state: RootState) => state.products.products);
   const product = products.find((product) => product.id.toString() === id);
@@ -15,6 +17,10 @@ const ProductPage = () => {
   if (!product) {
     return <p>Товар не найден!</p>;
   }
+
+	const handleAddToCart = () => {
+    dispatch(addToCart(product));
+  };
 
   return (
     <div className={styles.cardInfo}>
@@ -26,7 +32,7 @@ const ProductPage = () => {
       </div>
       <div className={styles.actions}>
         <div className={styles.btns}>
-          <Button>Добавить в корзину</Button>
+          <Button onClick={handleAddToCart}>Добавить в корзину</Button>
           <button className={styles.favorite}><FaHeart/></button>
         </div>
       </div>

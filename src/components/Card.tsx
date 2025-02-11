@@ -1,13 +1,13 @@
+import type { Product } from '../store/productSlice';
 import { Link } from 'react-router-dom';
 import styles from './card.module.css';
 import { FaStar } from 'react-icons/fa';
 import { GiNothingToSay } from 'react-icons/gi';
 import { FaHeart } from 'react-icons/fa';
-import type { Product } from '../store/productSlice';
 
-type CardProps = {
+interface CardProps {
   product: Product;
-};
+}
 
 function Card({ product }: CardProps) {
   const price = product.price * 100 - 3;
