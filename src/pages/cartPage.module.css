@@ -5,6 +5,10 @@
   list-style: none;
   padding: 0;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> a79fa30adefcb69aec537511829d18cb031c6563
 .cartItem {
   display: flex;
   align-items: center;
@@ -12,14 +16,26 @@
   border-bottom: 1px solid #ddd;
   padding: 10px 0;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> a79fa30adefcb69aec537511829d18cb031c6563
 .image {
   width: 80px;
   height: 80px;
   object-fit: contain;
 }
+<<<<<<< HEAD
 .details {
   flex-grow: 1;
 }
+=======
+
+.details {
+  flex-grow: 1;
+}
+
+>>>>>>> a79fa30adefcb69aec537511829d18cb031c6563
 .removeButton {
   background: red;
   color: white;
@@ -28,6 +44,13 @@
   cursor: pointer;
   border-radius: 5px;
 }
+<<<<<<< HEAD
 .removeButton:hover {
   background: darkred;
 }
+=======
+
+.removeButton:hover {
+  background: darkred;
+}
+>>>>>>> a79fa30adefcb69aec537511829d18cb031c6563
