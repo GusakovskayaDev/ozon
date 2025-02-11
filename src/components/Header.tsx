@@ -9,13 +9,16 @@ import { BsFillPersonFill } from 'react-icons/bs';
 import { FaBox } from 'react-icons/fa6';
 import { FaHeart } from 'react-icons/fa';
 import { FaShoppingCart } from 'react-icons/fa';
+import { useSelector } from 'react-redux';
+import { getTotalCount } from '../store/cartSlice';
 
 type headerProps = {
   openModal: () => void;
 };
 
 function Header({ openModal }: headerProps) {
-  const { user, logout } = useAuth();
+  const { user } = useAuth();
+	const cartCount = useSelector(getTotalCount);
 
   return (
     <header className={styles.header}>
@@ -34,9 +37,6 @@ function Header({ openModal }: headerProps) {
               <BsFillPersonFill />
               <p className={styles.text}>{user.username}</p>
             </Link>
-            {/* <button className={styles.logoutButton} onClick={logout}>
-              Выйти
-            </button> */}
           </>
         ) : (
           <div className={styles.icon} onClick={openModal}>
@@ -56,8 +56,9 @@ function Header({ openModal }: headerProps) {
         </Link>
 
         <Link to="/cart" className={styles.icon}>
-          <FaShoppingCart />
-          <p className={styles.text}>Корзина</p>
+          <FaShoppingCart/>
+          <p className={styles.text}>Корзина </p>
+					{cartCount > 0 && <span className={styles.counter}>{cartCount}</span>}
         </Link>
       </div>
     </header>

@@ -4,12 +4,19 @@ import styles from './card.module.css';
 import { FaStar } from 'react-icons/fa';
 import { GiNothingToSay } from 'react-icons/gi';
 import { FaHeart } from 'react-icons/fa';
+import { useSelector } from 'react-redux';
 
 interface CardProps {
   product: Product;
 }
 
 function Card({ product }: CardProps) {
+
+	const cartItem = useSelector((state: RootState) =>
+    state.cart.items.find((item) => item.id === product.id)
+  );
+
+  const quantity = cartItem ? cartItem.quantity : 0;
   const price = product.price * 100 - 3;
   return (
     <Link to={`/product/${product.id}`} className={styles.card}>
@@ -32,6 +39,8 @@ function Card({ product }: CardProps) {
         <GiNothingToSay className={styles.convers} />
         <p className={styles.review}>{product.rating.count} отзывов</p>
       </div>
+
+			{quantity > 0 && <span className={styles.counter}>{quantity}</span>}
     </Link>
   );
 }

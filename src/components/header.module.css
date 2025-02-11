@@ -31,10 +31,21 @@
 	color: gray;
 	width: 40px;
 	text-decoration: none;
+	position: relative;
 }
 .icon:hover{
 	color: #005bff;
 }
 .text{
 	font-size: 12px;
+}
+.counter {
+  background: red;
+  color: white;
+  border-radius: 50%;
+  padding: 4px 7px;
+  font-size: 10px;
+  top: -8px;
+  right: -4px;
+	position: absolute;
 }
